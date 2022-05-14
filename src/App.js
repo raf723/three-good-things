@@ -1,26 +1,25 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, View, Text} from 'react-native';
+
+import {NavigationContainer} from '@react-navigation/native';
 import {ScaleProvider} from 'react-native-design-to-component';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import {colors} from './hooks/colors';
+import {StyleProvider} from './hooks/styles';
 
-import Header from './components/Header';
+import {AppContainer} from './containers/app-container';
 
 const App = () => {
   return (
-    <ScaleProvider config={{height: 844, width: 390}}>
-      <SafeAreaView style={styles.background}>
-        <Header />
-      </SafeAreaView>
-    </ScaleProvider>
+    <SafeAreaProvider>
+      <ScaleProvider config={{height: 844, width: 390}}>
+        <StyleProvider>
+          <NavigationContainer>
+            <AppContainer />
+          </NavigationContainer>
+        </StyleProvider>
+      </ScaleProvider>
+    </SafeAreaProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    backgroundColor: colors.isabelline,
-  },
-});
 
 export default App;

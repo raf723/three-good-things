@@ -13,7 +13,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		14A8A500ABFF3F5EF4324BF5 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77400819A65E4A52D3A60A51 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */; };
 		158D5604D5CCF1454EB7383F /* libPods-ThreeGoodThings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57452DB8D1DE8BA0105CDAD8 /* libPods-ThreeGoodThings.a */; };
+		15CFE6C0079149B38ACB9BD4 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C2110B241ED4532BDF5DA3A /* PlayfairDisplay-Black.ttf */; };
+		344362747C3F428EA7E2CD88 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E64ACD951734EA3925788B1 /* PlayfairDisplay-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B15C38DF8CBE4C48AD11BD62 /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 539EE8C58F7947A5B81BE778 /* PlayfairDisplay-SemiBold.ttf */; };
+		B85AE9CD6D8D4E4E96D41034 /* PlayfairDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 750C8B36E28F4638805FFB4F /* PlayfairDisplay-Medium.ttf */; };
+		E250A614AF43401D8DDA51E8 /* PlayfairDisplay-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 131E8E581003434BB95E66BB /* PlayfairDisplay-ExtraBold.ttf */; };
+		E75C6856F3D64892B2EF8A10 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F9C09266BB54218AC560287 /* PlayfairDisplay-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,18 +36,24 @@
 		00E356EE1AD99517003FC87E /* ThreeGoodThingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeGoodThingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ThreeGoodThingsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeGoodThingsTests.m; sourceTree = "<group>"; };
+		131E8E581003434BB95E66BB /* PlayfairDisplay-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-ExtraBold.ttf"; path = "../assets/fonts/PlayfairDisplay-ExtraBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ThreeGoodThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeGoodThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ThreeGoodThings/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ThreeGoodThings/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ThreeGoodThings/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ThreeGoodThings/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ThreeGoodThings/main.m; sourceTree = "<group>"; };
+		1C2110B241ED4532BDF5DA3A /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Black.ttf"; path = "../assets/fonts/PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
+		539EE8C58F7947A5B81BE778 /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-SemiBold.ttf"; path = "../assets/fonts/PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
 		57452DB8D1DE8BA0105CDAD8 /* libPods-ThreeGoodThings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeGoodThings.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		673753C398F30282791517DF /* Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7000EE30D28959E395A932E1 /* Pods-ThreeGoodThings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings.release.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings.release.xcconfig"; sourceTree = "<group>"; };
+		750C8B36E28F4638805FFB4F /* PlayfairDisplay-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Medium.ttf"; path = "../assets/fonts/PlayfairDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		77400819A65E4A52D3A60A51 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeGoodThings-ThreeGoodThingsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ThreeGoodThings/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F9C09266BB54218AC560287 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Bold.ttf"; path = "../assets/fonts/PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		91B8073B0BBD908404CB61BE /* Pods-ThreeGoodThings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings.debug.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings.debug.xcconfig"; sourceTree = "<group>"; };
+		9E64ACD951734EA3925788B1 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Regular.ttf"; path = "../assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		C74A105BB035F7D9CFD9AA1F /* Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -96,6 +108,20 @@
 			name = ThreeGoodThings;
 			sourceTree = "<group>";
 		};
+		24E6F3889504476EBEEA4F0B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1C2110B241ED4532BDF5DA3A /* PlayfairDisplay-Black.ttf */,
+				8F9C09266BB54218AC560287 /* PlayfairDisplay-Bold.ttf */,
+				131E8E581003434BB95E66BB /* PlayfairDisplay-ExtraBold.ttf */,
+				750C8B36E28F4638805FFB4F /* PlayfairDisplay-Medium.ttf */,
+				9E64ACD951734EA3925788B1 /* PlayfairDisplay-Regular.ttf */,
+				539EE8C58F7947A5B81BE778 /* PlayfairDisplay-SemiBold.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +160,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				79F6ABBF9F8F664A32628E6A /* Pods */,
+				24E6F3889504476EBEEA4F0B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -245,6 +272,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				15CFE6C0079149B38ACB9BD4 /* PlayfairDisplay-Black.ttf in Resources */,
+				E75C6856F3D64892B2EF8A10 /* PlayfairDisplay-Bold.ttf in Resources */,
+				E250A614AF43401D8DDA51E8 /* PlayfairDisplay-ExtraBold.ttf in Resources */,
+				B85AE9CD6D8D4E4E96D41034 /* PlayfairDisplay-Medium.ttf in Resources */,
+				344362747C3F428EA7E2CD88 /* PlayfairDisplay-Regular.ttf in Resources */,
+				B15C38DF8CBE4C48AD11BD62 /* PlayfairDisplay-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
