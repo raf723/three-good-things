@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "splash logo (1500x954).png",
+      "filename" : "splash logo (900x572).png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "splash logo (3000x1907).png",
+      "filename" : "splash logo (1800x1144).png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "splash logo (4500x2861).png",
+      "filename" : "splash logo (2700x1716).png",
       "idiom" : "universal",
       "scale" : "3x"
     }
