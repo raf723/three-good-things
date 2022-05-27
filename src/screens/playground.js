@@ -26,7 +26,7 @@ export const Playground = () => {
   const styles = StyleSheet.create({
     background: {
       flex: 1,
-      backgroundColor: colors.isabelline,
+      backgroundColor: colors.alabaster,
     },
     container: {
       height: getHeight(44) + insets.top,
