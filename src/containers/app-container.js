@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {MainContainer} from './main-container';
 import {SplashScreen} from '../screens/login/splash-screen';
+import {Playground} from '../screens/playground';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,7 @@ export const AppContainer = () => {
       <Stack.Navigator>
         <Stack.Screen
           name="Splash"
-          component={SplashScreen}
+          component={Playground}
           options={{
             headerShown: false,
           }}
