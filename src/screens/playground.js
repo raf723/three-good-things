@@ -28,7 +28,7 @@ export const Playground = () => {
       flex: 1,
       backgroundColor: colors.alabaster,
     },
-    container: {
+    headerContainer: {
       height: getHeight(44) + insets.top,
       alignItems: 'center',
       justifyContent: 'flex-end',
@@ -41,7 +41,7 @@ export const Playground = () => {
   // -------------------- RENDER -------------------- //
   return (
     <View style={styles.background}>
-      <View style={styles.container}>
+      <View style={styles.headerContainer}>
         <Text style={styles.title}>{Today}</Text>
       </View>
     </View>

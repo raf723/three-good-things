@@ -18,9 +18,9 @@ export const SplashScreen = () => {
   const styles = StyleSheet.create({
     background: {
       flex: 1,
-      backgroundColor: colors.isabelline,
+      backgroundColor: colors.alabaster,
     },
-    container: {
+    headerContainer: {
       height: getHeight(44) + insets.top,
       alignItems: 'center',
       justifyContent: 'flex-end',
@@ -33,8 +33,8 @@ export const SplashScreen = () => {
   // -------------------- RENDER -------------------- //
   return (
     <View style={styles.background}>
-      <View style={styles.container}>
-        <Text style={styles.title}>{Today}</Text>
+      <View style={styles.headerContainer}>
+        {/* <Text style={styles.title}>{Today}</Text> */}
       </View>
     </View>
   );
