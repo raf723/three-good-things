@@ -14,8 +14,8 @@ export const AppContainer = () => {
     <>
       <Stack.Navigator>
         <Stack.Screen
-          name="Launch"
-          component={LaunchScreen}
+          name="Playground"
+          component={Playground}
           options={{
             headerShown: false,
           }}
