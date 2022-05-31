@@ -11,11 +11,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		14A8A500ABFF3F5EF4324BF5 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77400819A65E4A52D3A60A51 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */; };
-		158D5604D5CCF1454EB7383F /* libPods-ThreeGoodThings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57452DB8D1DE8BA0105CDAD8 /* libPods-ThreeGoodThings.a */; };
 		15CFE6C0079149B38ACB9BD4 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C2110B241ED4532BDF5DA3A /* PlayfairDisplay-Black.ttf */; };
 		344362747C3F428EA7E2CD88 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E64ACD951734EA3925788B1 /* PlayfairDisplay-Regular.ttf */; };
+		537F994BFF1AC13E1917D952 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 122BB136B575F7C95378E9F7 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */; };
 		715F4FE328415E7C00564EBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715F4FE228415E7C00564EBC /* LaunchScreen.storyboard */; };
+		AB7AE59E7ECD2AD33AC34FC9 /* libPods-ThreeGoodThings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44340B56ADE3228A6A012A32 /* libPods-ThreeGoodThings.a */; };
 		B15C38DF8CBE4C48AD11BD62 /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 539EE8C58F7947A5B81BE778 /* PlayfairDisplay-SemiBold.ttf */; };
 		B85AE9CD6D8D4E4E96D41034 /* PlayfairDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 750C8B36E28F4638805FFB4F /* PlayfairDisplay-Medium.ttf */; };
 		E250A614AF43401D8DDA51E8 /* PlayfairDisplay-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 131E8E581003434BB95E66BB /* PlayfairDisplay-ExtraBold.ttf */; };
@@ -36,6 +36,7 @@
 		00E356EE1AD99517003FC87E /* ThreeGoodThingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeGoodThingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ThreeGoodThingsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeGoodThingsTests.m; sourceTree = "<group>"; };
+		122BB136B575F7C95378E9F7 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeGoodThings-ThreeGoodThingsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		131E8E581003434BB95E66BB /* PlayfairDisplay-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-ExtraBold.ttf"; path = "../assets/fonts/PlayfairDisplay-ExtraBold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ThreeGoodThings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeGoodThings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ThreeGoodThings/AppDelegate.h; sourceTree = "<group>"; };
@@ -44,18 +45,17 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ThreeGoodThings/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ThreeGoodThings/main.m; sourceTree = "<group>"; };
 		1C2110B241ED4532BDF5DA3A /* PlayfairDisplay-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Black.ttf"; path = "../assets/fonts/PlayfairDisplay-Black.ttf"; sourceTree = "<group>"; };
+		376B78C133222065E6F6F2E7 /* Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig"; sourceTree = "<group>"; };
+		44340B56ADE3228A6A012A32 /* libPods-ThreeGoodThings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeGoodThings.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		539EE8C58F7947A5B81BE778 /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-SemiBold.ttf"; path = "../assets/fonts/PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
-		57452DB8D1DE8BA0105CDAD8 /* libPods-ThreeGoodThings.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeGoodThings.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		673753C398F30282791517DF /* Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		7000EE30D28959E395A932E1 /* Pods-ThreeGoodThings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings.release.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings.release.xcconfig"; sourceTree = "<group>"; };
+		6A2953C39DB1A58F1AEFE754 /* Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		715F4FE228415E7C00564EBC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		750C8B36E28F4638805FFB4F /* PlayfairDisplay-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Medium.ttf"; path = "../assets/fonts/PlayfairDisplay-Medium.ttf"; sourceTree = "<group>"; };
-		77400819A65E4A52D3A60A51 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThreeGoodThings-ThreeGoodThingsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F9C09266BB54218AC560287 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Bold.ttf"; path = "../assets/fonts/PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
-		91B8073B0BBD908404CB61BE /* Pods-ThreeGoodThings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings.debug.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings.debug.xcconfig"; sourceTree = "<group>"; };
+		90CC45C516206C4DB44E5633 /* Pods-ThreeGoodThings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings.debug.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings.debug.xcconfig"; sourceTree = "<group>"; };
 		9E64ACD951734EA3925788B1 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Regular.ttf"; path = "../assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
-		C74A105BB035F7D9CFD9AA1F /* Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F568B5F27C2FDC433B8162B3 /* Pods-ThreeGoodThings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThreeGoodThings.release.xcconfig"; path = "Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A8A500ABFF3F5EF4324BF5 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a in Frameworks */,
+				537F994BFF1AC13E1917D952 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				158D5604D5CCF1454EB7383F /* libPods-ThreeGoodThings.a in Frameworks */,
+				AB7AE59E7ECD2AD33AC34FC9 /* libPods-ThreeGoodThings.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				57452DB8D1DE8BA0105CDAD8 /* libPods-ThreeGoodThings.a */,
-				77400819A65E4A52D3A60A51 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */,
+				44340B56ADE3228A6A012A32 /* libPods-ThreeGoodThings.a */,
+				122BB136B575F7C95378E9F7 /* libPods-ThreeGoodThings-ThreeGoodThingsTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -134,10 +134,10 @@
 		79F6ABBF9F8F664A32628E6A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				91B8073B0BBD908404CB61BE /* Pods-ThreeGoodThings.debug.xcconfig */,
-				7000EE30D28959E395A932E1 /* Pods-ThreeGoodThings.release.xcconfig */,
-				673753C398F30282791517DF /* Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig */,
-				C74A105BB035F7D9CFD9AA1F /* Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig */,
+				90CC45C516206C4DB44E5633 /* Pods-ThreeGoodThings.debug.xcconfig */,
+				F568B5F27C2FDC433B8162B3 /* Pods-ThreeGoodThings.release.xcconfig */,
+				6A2953C39DB1A58F1AEFE754 /* Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig */,
+				376B78C133222065E6F6F2E7 /* Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -181,12 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ThreeGoodThingsTests" */;
 			buildPhases = (
-				3F9C69C952F85DD707EB681E /* [CP] Check Pods Manifest.lock */,
+				910FAD95A8EE61EAF9C25640 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				E47F4CCB56882D8423D6DF04 /* [CP] Embed Pods Frameworks */,
-				AFB76CDF96C2195C52CF01D5 /* [CP] Copy Pods Resources */,
+				8EE7A274EA0A4A7EEEC2618F /* [CP] Embed Pods Frameworks */,
+				D8FC627EC978531DEFB4DDB1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -202,14 +202,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ThreeGoodThings" */;
 			buildPhases = (
-				B51D7D65EDA22D9F27DC1C48 /* [CP] Check Pods Manifest.lock */,
+				A341A8465F1B9B8B78AE669A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				3988839F7A52A921001DA201 /* [CP] Embed Pods Frameworks */,
-				28E10C0309AB2DFA616133AD /* [CP] Copy Pods Resources */,
+				DCC72C10D96D37132A0BE9D4 /* [CP] Embed Pods Frameworks */,
+				170E15B1D09D436F66A747FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,7 +296,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		28E10C0309AB2DFA616133AD /* [CP] Copy Pods Resources */ = {
+		170E15B1D09D436F66A747FD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,24 +313,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3988839F7A52A921001DA201 /* [CP] Embed Pods Frameworks */ = {
+		8EE7A274EA0A4A7EEEC2618F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3F9C69C952F85DD707EB681E /* [CP] Check Pods Manifest.lock */ = {
+		910FAD95A8EE61EAF9C25640 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,24 +352,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AFB76CDF96C2195C52CF01D5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B51D7D65EDA22D9F27DC1C48 /* [CP] Check Pods Manifest.lock */ = {
+		A341A8465F1B9B8B78AE669A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -391,21 +374,38 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E47F4CCB56882D8423D6DF04 /* [CP] Embed Pods Frameworks */ = {
+		D8FC627EC978531DEFB4DDB1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings-ThreeGoodThingsTests/Pods-ThreeGoodThings-ThreeGoodThingsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCC72C10D96D37132A0BE9D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ThreeGoodThings/Pods-ThreeGoodThings-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -460,7 +460,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 673753C398F30282791517DF /* Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig */;
+			baseConfigurationReference = 6A2953C39DB1A58F1AEFE754 /* Pods-ThreeGoodThings-ThreeGoodThingsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -487,7 +487,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C74A105BB035F7D9CFD9AA1F /* Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig */;
+			baseConfigurationReference = 376B78C133222065E6F6F2E7 /* Pods-ThreeGoodThings-ThreeGoodThingsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -511,7 +511,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91B8073B0BBD908404CB61BE /* Pods-ThreeGoodThings.debug.xcconfig */;
+			baseConfigurationReference = 90CC45C516206C4DB44E5633 /* Pods-ThreeGoodThings.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -539,7 +539,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7000EE30D28959E395A932E1 /* Pods-ThreeGoodThings.release.xcconfig */;
+			baseConfigurationReference = F568B5F27C2FDC433B8162B3 /* Pods-ThreeGoodThings.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
