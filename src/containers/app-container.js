@@ -4,7 +4,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {MainContainer} from './main-container';
-import {SplashScreen} from '../screens/login/splash-screen';
+import {LaunchScreen} from '../screens/login/launch-screen';
 import {Playground} from '../screens/playground';
 
 const Stack = createNativeStackNavigator();
@@ -14,8 +14,8 @@ export const AppContainer = () => {
     <>
       <Stack.Navigator>
         <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
+          name="Launch"
+          component={LaunchScreen}
           options={{
             headerShown: false,
           }}
