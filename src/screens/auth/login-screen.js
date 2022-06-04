@@ -46,7 +46,7 @@ export const LoginScreen = () => {
 
   // -------------------- ACTIONS -------------------- //
   const setStorage = async () => {
-    await AsyncStorage.setItem('ONBOARDING', 'false');
+    await AsyncStorage.setItem('ONBOARDED', 'false');
   };
 
   // -------------------- FIELDS -------------------- //

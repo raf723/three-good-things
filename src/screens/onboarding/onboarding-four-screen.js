@@ -33,7 +33,7 @@ export const OnboardingFourScreen = () => {
 
   // -------------------- ACTIONS -------------------- //
   const onPressFinish = async () => {
-    await AsyncStorage.setItem('ONBOARDING', 'true');
+    await AsyncStorage.setItem('ONBOARDED', 'true');
 
     navigation.navigate('login');
   };

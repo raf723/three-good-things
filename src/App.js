@@ -19,7 +19,7 @@ const App = () => {
 
   // -------------------- ACTIONS -------------------- //
   const getStorage = async () => {
-    const onboarded = await AsyncStorage.getItem('ONBOARDING');
+    const onboarded = await AsyncStorage.getItem('ONBOARDED');
     setOnboarded(JSON.parse(onboarded));
   };
 
