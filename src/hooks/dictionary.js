@@ -1,13 +1,20 @@
 export const dictionary = {
-  SignIn: {
-    ForgotPassword: 'Forgot Password',
-    SignIn: 'Sign In',
+  Auth: {
+    CreateAccount: `Create\nan account`,
+    Email: 'Email',
+    Login: 'Login',
+    LoginToAccount: `Login to\nyour account`,
+    Password: 'Password',
+    ResetPassword: 'Reset Password',
   },
-  SignUp: {
-    AlreadyRegistered: 'Already have an account? ',
-    SignInHere: 'Sign in here',
-    SignUp: 'Sign Up',
+  Onboarding: {
+    AddImages: `Add images\nto things`,
+    Continue: 'Continue',
+    Finish: 'Finish',
+    GetReminders: `Get reminders\nof memories`,
+    Start: 'Start',
+    Welcome: 'Welcome',
+    WriteThreeThings: `Write three\nthings, every day`,
   },
   ThreeGoodThings: 'Three Good Things',
-  Today: 'Today',
 };
