@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 import {MainContainer} from './main-container';
 import {LoginScreen} from '../screens/auth/login-screen';
+import {RegisterScreen} from '../screens/auth/register-screen';
 import {OnboardingOneScreen} from '../screens/onboarding/onboarding-one-screen';
 import {OnboardingTwoScreen} from '../screens/onboarding/onboarding-two-screen';
 import {OnboardingFourScreen} from '../screens/onboarding/onboarding-four-screen';
@@ -12,13 +13,14 @@ import {OnboardingThreeScreen} from '../screens/onboarding/onboarding-three-scre
 
 import {Playground} from '../screens/playground';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export const AppContainer = ({onboarded}) => {
   return (
     <>
       <Stack.Navigator
-        initialRouteName={onboarded ? 'login' : 'onboarding-one'}>
+        initialRouteName={onboarded ? 'login' : 'onboarding-one'}
+        screenOptions={{...TransitionPresets.SlideFromRightIOS}}>
         <Stack.Screen
           name="onboarding-one"
           component={OnboardingOneScreen}
@@ -50,6 +52,13 @@ export const AppContainer = ({onboarded}) => {
         <Stack.Screen
           name="login"
           component={LoginScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="register"
+          component={RegisterScreen}
           options={{
             headerShown: false,
           }}

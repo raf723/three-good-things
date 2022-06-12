@@ -53,6 +53,11 @@ export const StyleProvider = ({children}) => {
       fontFamily: fonts.semiBold,
       fontSize: fontSize(20),
     },
+    semiBold24_bistre: {
+      color: colors.bistre,
+      fontFamily: fonts.semiBold,
+      fontSize: fontSize(24),
+    },
     semiBold28_bistre: {
       color: colors.bistre,
       fontFamily: fonts.semiBold,

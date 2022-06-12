@@ -1,11 +1,13 @@
 export const dictionary = {
   Auth: {
+    ConfirmPassword: 'Confirm password',
     CreateAccount: `Create\nan account`,
     Email: 'Email',
     Login: 'Login',
     LoginToAccount: `Login to\nyour account`,
     Password: 'Password',
-    ResetPassword: 'Reset Password',
+    Register: 'Register',
+    ResetPassword: 'Reset password',
   },
   Onboarding: {
     AddImages: `Add images\nto things`,

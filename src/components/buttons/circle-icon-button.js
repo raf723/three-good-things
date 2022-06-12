@@ -6,8 +6,8 @@ import {ScaleHook} from 'react-native-design-to-component';
 
 import {useStyle} from '../../hooks/styles';
 
-export const DefaultButton = props => {
-  const {text, bgColor, onPress} = props;
+export const CircleIconButton = props => {
+  const {icon, onPress} = props;
 
   const {colors, textStyles} = useStyle();
   const {getHeight, getWidth, fontSize, radius} = ScaleHook();
@@ -22,25 +22,19 @@ export const DefaultButton = props => {
   // -------------------- STYLES -------------------- //
   const styles = StyleSheet.create({
     button: {
-      width: '100%',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: bgColor,
-      borderRadius: radius(8),
-      paddingLeft: getWidth(16),
-      paddingRight: getWidth(24),
-      paddingVertical: getHeight(8),
-    },
-    buttonText: {
-      ...textStyles.semiBold20_bistre,
-      paddingBottom: getHeight(4),
+      height: getHeight(40),
+      width: getWidth(40),
+      borderRadius: radius(20),
+      backgroundColor: colors.bistre,
     },
   });
 
   // -------------------- RENDER -------------------- //
   return (
     <TouchableOpacity style={styles.button} onPress={onPressFinal}>
-      <Text style={styles.buttonText}>{text}</Text>
+      <Icon name={icon} size={fontSize(20)} color={colors.alabaster} />
     </TouchableOpacity>
   );
 };

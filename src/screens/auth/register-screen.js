@@ -1,15 +1,12 @@
-import React, {useState, useEffect, useRef, useMemo, useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {
   View,
   Text,
   TextInput,
-  Dimensions,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
 
-import Modal from 'react-native-modal';
-import {Modalize} from 'react-native-modalize';
 import FastImage from 'react-native-fast-image';
 import SplashScreen from 'react-native-splash-screen';
 import {useNavigation} from '@react-navigation/native';
@@ -22,69 +19,44 @@ import {dictionary} from '../../hooks/dictionary';
 
 import {DefaultButton} from '../../components/buttons/default-button';
 import {OnboardingButton} from '../../components/buttons/onboarding-button';
-import {CircleIconButton} from '../../components/buttons/circle-icon-button';
 
 const sigma = require('../../../assets/images/sigma.png');
 
-export const LoginScreen = () => {
+export const RegisterScreen = () => {
   const navigation = useNavigation();
   const {colors, textStyles, formStyles} = useStyle();
   const {getHeight, getWidth, fontSize, radius} = ScaleHook();
 
-  const {CreateAccount, Email, Login, LoginToAccount, Password, ResetPassword} =
-    dictionary.Auth;
+  const {
+    ConfirmPassword,
+    CreateAccount,
+    Email,
+    Login,
+    LoginToAccount,
+    Password,
+    Register,
+  } = dictionary.Auth;
 
   const insets = useSafeAreaInsets();
   const topMargin = insets.top + getHeight(48);
 
-  const bottomSheetRef = useRef();
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
-  const maxPoint = Dimensions.get('window').height - getHeight(55);
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [resetEmail, setResetEmail] = useState();
-  const [modalVisible, setModalVisible] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState();
 
   // -------------------- EFFECTS -------------------- //
-  useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 2000);
-  }, []);
-
-  useEffect(() => {
-    // setStorage();
-  }, []);
 
   // -------------------- ACTIONS -------------------- //
-  const setStorage = async () => {
-    await AsyncStorage.setItem('ONBOARDED', 'false');
+  const onPressLogin = () => {
+    navigation.goBack();
   };
 
-  const onPressLogin = () => {
-    if (!email || !password) return;
+  const onPressRegister = () => {
+    if (!email || !password || !confirmPassword) return;
 
     console.log('email: ', email);
     console.log('password: ', password);
-  };
-
-  const onPressResetPassword = () => {
-    setModalVisible(true);
-  };
-
-  const onPressCloseModal = () => {
-    setModalVisible(false);
-  };
-
-  const onPressCreateAccount = () => {
-    navigation.navigate('register');
-  };
-
-  const onPressSendEmail = () => {
-    if (!resetEmail) return;
-
-    console.log('resetEmail: ', resetEmail);
+    console.log('confirmPassword: ', confirmPassword);
   };
 
   // -------------------- FIELDS -------------------- //
@@ -100,17 +72,17 @@ export const LoginScreen = () => {
       autoCapitalize: 'none',
       onChange: e => setPassword(e.nativeEvent.text),
       placeholder: Password,
-      placeholderTextColor: 'grey',
       secureTextEntry: true,
+      placeholderTextColor: 'grey',
       value: password,
     },
-    resetEmail: {
+    confirmPassword: {
       autoCapitalize: 'none',
-      onChange: e => setResetEmail(e.nativeEvent.text),
-      onFocus: () => bottomSheetRef.current?.open('top'),
-      placeholder: Email,
+      onChange: e => setConfirmPassword(e.nativeEvent.text),
+      placeholder: ConfirmPassword,
       placeholderTextColor: 'grey',
-      value: resetEmail,
+      secureTextEntry: true,
+      value: confirmPassword,
     },
   };
 
@@ -153,32 +125,6 @@ export const LoginScreen = () => {
     resetPassword: {
       ...textStyles.medium16_bistre,
     },
-    modalStyle: {
-      paddingTop: getHeight(24),
-      paddingHorizontal: getWidth(26),
-      backgroundColor: colors.alabaster,
-    },
-    modalTitleContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    modalTitle: {
-      ...textStyles.semiBold24_bistre,
-    },
-    closeModalButton: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: getHeight(40),
-      width: getWidth(40),
-      borderRadius: radius(20),
-      backgroundColor: colors.bistre,
-    },
-    closeModalIcon: {
-      name: 'chevron-down',
-      size: fontSize(20),
-      color: colors.alabaster,
-    },
   });
 
   // -------------------- RENDER -------------------- //
@@ -195,7 +141,7 @@ export const LoginScreen = () => {
       <View style={{height: getHeight(32)}} />
 
       {/* Title */}
-      <Text style={styles.title}>{LoginToAccount}</Text>
+      <Text style={styles.title}>{CreateAccount}</Text>
       <View style={{height: getHeight(32)}} />
 
       {/* Email */}
@@ -204,63 +150,29 @@ export const LoginScreen = () => {
 
       {/* Password */}
       <TextInput style={styles.input} {...fields.password}></TextInput>
+      <View style={{height: getHeight(12)}} />
+
+      {/* Confirm password */}
+      <TextInput style={styles.input} {...fields.confirmPassword}></TextInput>
       <View style={{height: getHeight(32)}} />
 
-      {/* Login button */}
+      {/* Register button */}
       <DefaultButton
-        text={Login}
-        onPress={onPressLogin}
+        text={Register}
         bgColor={colors.yellowOrange}
+        onPress={onPressRegister}
       />
       <View style={{height: getHeight(8)}} />
-
-      {/* Reset password button */}
-      <TouchableOpacity
-        onPress={onPressResetPassword}
-        style={styles.resetPasswordButton}>
-        <Text style={styles.resetPassword}>{ResetPassword}</Text>
-      </TouchableOpacity>
 
       {/* Create account button */}
       <View style={styles.createAccountContainer}>
         <OnboardingButton
-          text={CreateAccount}
+          text={LoginToAccount}
           darkMode={true}
           arrow={false}
-          onPress={onPressCreateAccount}
+          onPress={onPressLogin}
         />
       </View>
-
-      {/* Reset password bottom sheet */}
-      <Modal style={{margin: 0}} isVisible={modalVisible} backdropOpacity={0.6}>
-        <Modalize
-          ref={bottomSheetRef}
-          modalHeight={maxPoint}
-          handlePosition={'inside'}
-          handleStyle={{height: 0}}
-          alwaysOpen={getHeight(240)}
-          modalStyle={styles.modalStyle}>
-          <View style={styles.modalTitleContainer}>
-            <Text style={styles.modalTitle}>{ResetPassword}</Text>
-            <CircleIconButton
-              icon={'chevron-down'}
-              onPress={onPressCloseModal}
-            />
-          </View>
-          <View style={{height: getHeight(24)}} />
-
-          {/* Email */}
-          <TextInput style={styles.input} {...fields.resetEmail}></TextInput>
-          <View style={{height: getHeight(12)}} />
-
-          {/* Send email button */}
-          <DefaultButton
-            text={'Send Email'}
-            onPress={onPressSendEmail}
-            bgColor={colors.yellowOrange}
-          />
-        </Modalize>
-      </Modal>
     </SafeAreaView>
   );
 };
