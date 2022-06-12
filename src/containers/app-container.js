@@ -3,6 +3,8 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
+import {useLoading} from '../hooks/loading';
+
 import {MainContainer} from './main-container';
 import {LoginScreen} from '../screens/auth/login-screen';
 import {RegisterScreen} from '../screens/auth/register-screen';
@@ -12,10 +14,13 @@ import {OnboardingFourScreen} from '../screens/onboarding/onboarding-four-screen
 import {OnboardingThreeScreen} from '../screens/onboarding/onboarding-three-screen';
 
 import {Playground} from '../screens/playground';
+import {LoadingView} from '../components/utils/loading-view';
 
 const Stack = createStackNavigator();
 
 export const AppContainer = ({onboarded}) => {
+  const {loading} = useLoading();
+
   return (
     <>
       <Stack.Navigator
@@ -77,6 +82,7 @@ export const AppContainer = ({onboarded}) => {
           in React Navigation docs:
           https://reactnavigation.org/docs/hiding-tabbar-in-screens/ */}
       </Stack.Navigator>
+      {loading && <LoadingView />}
     </>
   );
 };

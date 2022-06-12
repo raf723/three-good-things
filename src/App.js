@@ -6,6 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {StyleProvider} from './hooks/styles';
+import {LoadingProvider} from './hooks/loading';
 
 import {AppContainer} from './containers/app-container';
 
@@ -29,7 +30,9 @@ const App = () => {
       <ScaleProvider config={{height: 844, width: 390}}>
         <StyleProvider>
           <NavigationContainer>
-            <AppContainer onboarded={onboarded} />
+            <LoadingProvider>
+              <AppContainer onboarded={onboarded} />
+            </LoadingProvider>
           </NavigationContainer>
         </StyleProvider>
       </ScaleProvider>
