@@ -18,6 +18,12 @@ import {LoadingView} from '../components/utils/loading-view';
 
 const Stack = createStackNavigator();
 
+const forFade = ({current}) => ({
+  cardStyle: {
+    opacity: current.progress,
+  },
+});
+
 export const AppContainer = ({onboarded}) => {
   const {loading} = useLoading();
 
@@ -68,14 +74,14 @@ export const AppContainer = ({onboarded}) => {
             headerShown: false,
           }}
         />
-
-        {/* <AppStack.Screen
-            name="Main"
-            component={MainContainer}
-            options={{
-              headerShown: false,
-            }}
-          /> */}
+        <Stack.Screen
+          name="main"
+          component={MainContainer}
+          options={{
+            cardStyleInterpolator: forFade,
+            headerShown: false,
+          }}
+        />
 
         {/* The screens below don't show a tab bar so moving them
           outside the BottomTabContainer fixes this as explained

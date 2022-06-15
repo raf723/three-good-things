@@ -6,6 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {StyleProvider} from './hooks/styles';
+import {GlobalProvider} from './hooks/global';
 import {LoadingProvider} from './hooks/loading';
 
 import {AppContainer} from './containers/app-container';
@@ -31,7 +32,9 @@ const App = () => {
         <StyleProvider>
           <NavigationContainer>
             <LoadingProvider>
-              <AppContainer onboarded={onboarded} />
+              <GlobalProvider>
+                <AppContainer onboarded={onboarded} />
+              </GlobalProvider>
             </LoadingProvider>
           </NavigationContainer>
         </StyleProvider>
