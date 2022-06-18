@@ -8,12 +8,14 @@ export const useGlobal = () => {
 };
 
 export const GlobalProvider = ({children}) => {
+  const [user, setUser] = useState();
+
   // ** ** ** ** ** EFFECTS ** ** ** ** **
 
   // ** ** ** ** ** ACTIONS ** ** ** ** **
 
   // ** ** ** ** ** MEMOIZE ** ** ** ** **
-  const values = useMemo(() => ({}), []);
+  const values = useMemo(() => ({user, setUser}), [user, setUser]);
 
   // ** ** ** ** ** RENDER ** ** ** ** **
   return (

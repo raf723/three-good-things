@@ -60,4 +60,4 @@ buck-out/
 /ios/Pods/
 
 # Secrets
-env-vars.sh
+/env-vars.js

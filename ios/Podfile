@@ -14,6 +14,8 @@ target 'ThreeGoodThings' do
 
   pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
 
+  pod 'RNAWSCognito', :path => '../node_modules/amazon-cognito-identity-js'
+
   target 'ThreeGoodThingsTests' do
     inherit! :complete
     # Pods for testing

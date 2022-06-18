@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef, useMemo, useCallback} from 'react';
 import {
   View,
   Text,
+  Alert,
   TextInput,
   Dimensions,
   StyleSheet,
@@ -15,10 +16,15 @@ import SplashScreen from 'react-native-splash-screen';
 import {useNavigation} from '@react-navigation/native';
 import {ScaleHook} from 'react-native-design-to-component';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {CognitoUser, AuthenticationDetails} from 'amazon-cognito-identity-js';
 import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {useStyle} from '../../hooks/styles';
+import {emailRegex} from '../../utils/regex';
+import {useGlobal} from '../../hooks/global';
+import {useLoading} from '../../hooks/loading';
 import {dictionary} from '../../hooks/dictionary';
+import {cognitoPool} from '../../utils/cognito-pool';
 
 import {DefaultButton} from '../../components/buttons/default-button';
 import {OnboardingButton} from '../../components/buttons/onboarding-button';
@@ -27,12 +33,13 @@ import {CircleIconButton} from '../../components/buttons/circle-icon-button';
 const sigma = require('../../../assets/images/sigma.png');
 
 export const LoginScreen = () => {
+  const {setUser} = useGlobal();
+  const {setLoading} = useLoading();
   const navigation = useNavigation();
   const {colors, textStyles, formStyles} = useStyle();
   const {getHeight, getWidth, fontSize, radius} = ScaleHook();
 
-  const {CreateAccount, Email, Login, LoginToAccount, Password, ResetPassword} =
-    dictionary.Auth;
+  const {Auth, General} = dictionary;
 
   const insets = useSafeAreaInsets();
   const topMargin = insets.top + getHeight(48);
@@ -55,6 +62,7 @@ export const LoginScreen = () => {
 
   useEffect(() => {
     // setStorage();
+    getSession();
   }, []);
 
   // -------------------- ACTIONS -------------------- //
@@ -62,11 +70,59 @@ export const LoginScreen = () => {
     await AsyncStorage.setItem('ONBOARDED', 'false');
   };
 
-  const onPressLogin = () => {
-    if (!email || !password) return;
+  const resetForm = () => {
+    setEmail();
+    setPassword();
+    setResetEmail();
+  };
 
-    console.log('email: ', email);
-    console.log('password: ', password);
+  const onPressLogin = () => {
+    if (!email || !password) {
+      return Alert.alert(General.Error, Auth.EnterRequiredFields);
+    }
+
+    if (!emailRegex.test(email) || password?.length < 6) {
+      return Alert.alert(General.Error, Auth.InvalidCredentials);
+    }
+
+    const user = new CognitoUser({
+      Username: email,
+      Pool: cognitoPool,
+    });
+    setUser(user);
+
+    const authDetails = new AuthenticationDetails({
+      Username: email,
+      Password: password,
+    });
+
+    setLoading(true);
+    user.authenticateUser(authDetails, {
+      onSuccess: async res => {
+        resetForm();
+        setLoading(false);
+
+        const token = res?.refreshToken?.token;
+        await AsyncStorage.setItem('REFRESH_TOKEN', token);
+
+        setTimeout(() => {
+          navigation.navigate('main');
+        }, 350);
+      },
+
+      onFailure: err => {
+        setLoading(false);
+
+        switch (err.name) {
+          case 'UserNotConfirmedException':
+            return Alert.alert(General.Error, Auth.UserNotConfirmed);
+          case 'NotAuthorizedException':
+            return Alert.alert(General.Error, Auth.IncorrectCredentials);
+          default:
+            return Alert.alert(General.Error, General.SomethingWentWrong);
+        }
+      },
+    });
   };
 
   const onPressResetPassword = () => {
@@ -82,25 +138,72 @@ export const LoginScreen = () => {
   };
 
   const onPressSendEmail = () => {
-    if (!resetEmail) return;
+    if (!resetEmail) {
+      return Alert.alert(General.Error, Auth.EnterRequiredFields);
+    }
 
-    console.log('resetEmail: ', resetEmail);
+    if (!emailRegex.test(resetEmail)) {
+      return Alert.alert(General.Error, Auth.InvalidEmail);
+    }
+
+    const user = new CognitoUser({
+      Username: resetEmail,
+      Pool: cognitoPool,
+    });
+    setUser(user);
+
+    user.forgotPassword({
+      onSuccess: res => {
+        Alert.alert(General.Success, Auth.ResetEmailSent, [
+          {
+            text: 'OK',
+            onPress: () => {
+              setModalVisible(false);
+              setTimeout(() => {
+                navigation.navigate('reset-password');
+              }, 500);
+            },
+          },
+        ]);
+      },
+      onFailure: err => {
+        Alert.alert(General.Error, General.SomethingWentWrong, [{text: 'OK'}]);
+      },
+    });
   };
+
+  const getSession = useCallback(async () => {
+    const storageToken = await AsyncStorage.getItem('REFRESH_TOKEN');
+
+    cognitoPool.storage.sync(function (err, res) {
+      if (res !== 'SUCCESS') return;
+
+      const user = cognitoPool.getCurrentUser();
+      if (!user) return;
+
+      user.getSession((err, session) => {
+        if (err) return;
+
+        const sessionToken = session?.refreshToken?.token;
+        if (sessionToken === storageToken) navigation.navigate('main');
+      });
+    });
+  }, []);
 
   // -------------------- FIELDS -------------------- //
   const fields = {
     email: {
       autoCapitalize: 'none',
       onChange: e => setEmail(e.nativeEvent.text),
-      placeholder: Email,
-      placeholderTextColor: 'grey',
+      placeholder: Auth.Email,
+      placeholderTextColor: colors.paleSilver,
       value: email,
     },
     password: {
       autoCapitalize: 'none',
       onChange: e => setPassword(e.nativeEvent.text),
-      placeholder: Password,
-      placeholderTextColor: 'grey',
+      placeholder: Auth.Password,
+      placeholderTextColor: colors.paleSilver,
       secureTextEntry: true,
       value: password,
     },
@@ -108,8 +211,8 @@ export const LoginScreen = () => {
       autoCapitalize: 'none',
       onChange: e => setResetEmail(e.nativeEvent.text),
       onFocus: () => bottomSheetRef.current?.open('top'),
-      placeholder: Email,
-      placeholderTextColor: 'grey',
+      placeholder: Auth.Email,
+      placeholderTextColor: colors.paleSilver,
       value: resetEmail,
     },
   };
@@ -166,19 +269,6 @@ export const LoginScreen = () => {
     modalTitle: {
       ...textStyles.semiBold24_bistre,
     },
-    closeModalButton: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: getHeight(40),
-      width: getWidth(40),
-      borderRadius: radius(20),
-      backgroundColor: colors.bistre,
-    },
-    closeModalIcon: {
-      name: 'chevron-down',
-      size: fontSize(20),
-      color: colors.alabaster,
-    },
   });
 
   // -------------------- RENDER -------------------- //
@@ -195,7 +285,7 @@ export const LoginScreen = () => {
       <View style={{height: getHeight(32)}} />
 
       {/* Title */}
-      <Text style={styles.title}>{LoginToAccount}</Text>
+      <Text style={styles.title}>{Auth.LoginToAccount}</Text>
       <View style={{height: getHeight(32)}} />
 
       {/* Email */}
@@ -208,7 +298,7 @@ export const LoginScreen = () => {
 
       {/* Login button */}
       <DefaultButton
-        text={Login}
+        text={Auth.Login}
         onPress={onPressLogin}
         bgColor={colors.yellowOrange}
       />
@@ -218,13 +308,13 @@ export const LoginScreen = () => {
       <TouchableOpacity
         onPress={onPressResetPassword}
         style={styles.resetPasswordButton}>
-        <Text style={styles.resetPassword}>{ResetPassword}</Text>
+        <Text style={styles.resetPassword}>{Auth.ResetPassword}</Text>
       </TouchableOpacity>
 
       {/* Create account button */}
       <View style={styles.createAccountContainer}>
         <OnboardingButton
-          text={CreateAccount}
+          text={Auth.CreateAccount}
           darkMode={true}
           arrow={false}
           onPress={onPressCreateAccount}
@@ -238,24 +328,24 @@ export const LoginScreen = () => {
           modalHeight={maxPoint}
           handlePosition={'inside'}
           handleStyle={{height: 0}}
-          alwaysOpen={getHeight(240)}
+          alwaysOpen={getHeight(256)}
           modalStyle={styles.modalStyle}>
           <View style={styles.modalTitleContainer}>
-            <Text style={styles.modalTitle}>{ResetPassword}</Text>
+            <Text style={styles.modalTitle}>{Auth.ResetPassword}</Text>
             <CircleIconButton
               icon={'chevron-down'}
               onPress={onPressCloseModal}
             />
           </View>
-          <View style={{height: getHeight(24)}} />
+          <View style={{height: getHeight(32)}} />
 
           {/* Email */}
           <TextInput style={styles.input} {...fields.resetEmail}></TextInput>
-          <View style={{height: getHeight(12)}} />
+          <View style={{height: getHeight(20)}} />
 
           {/* Send email button */}
           <DefaultButton
-            text={'Send Email'}
+            text={Auth.SendEmail}
             onPress={onPressSendEmail}
             bgColor={colors.yellowOrange}
           />

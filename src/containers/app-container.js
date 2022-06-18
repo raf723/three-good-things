@@ -8,6 +8,7 @@ import {useLoading} from '../hooks/loading';
 import {MainContainer} from './main-container';
 import {LoginScreen} from '../screens/auth/login-screen';
 import {RegisterScreen} from '../screens/auth/register-screen';
+import {ResetPasswordScreen} from '../screens/auth/reset-password-screen';
 import {OnboardingOneScreen} from '../screens/onboarding/onboarding-one-screen';
 import {OnboardingTwoScreen} from '../screens/onboarding/onboarding-two-screen';
 import {OnboardingFourScreen} from '../screens/onboarding/onboarding-four-screen';
@@ -70,6 +71,13 @@ export const AppContainer = ({onboarded}) => {
         <Stack.Screen
           name="register"
           component={RegisterScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="reset-password"
+          component={ResetPasswordScreen}
           options={{
             headerShown: false,
           }}

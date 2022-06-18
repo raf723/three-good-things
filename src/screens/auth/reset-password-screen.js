@@ -3,8 +3,11 @@ import {
   View,
   Text,
   Alert,
+  Platform,
   TextInput,
+  UIManager,
   StyleSheet,
+  LayoutAnimation,
   TouchableOpacity,
 } from 'react-native';
 
@@ -15,16 +18,16 @@ import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {useStyle} from '../../hooks/styles';
 import {emailRegex} from '../../utils/regex';
+import {useGlobal} from '../../hooks/global';
 import {useLoading} from '../../hooks/loading';
 import {dictionary} from '../../hooks/dictionary';
-import {cognitoPool} from '../../utils/cognito-pool';
 
 import {DefaultButton} from '../../components/buttons/default-button';
-import {OnboardingButton} from '../../components/buttons/onboarding-button';
 
 const sigma = require('../../../assets/images/sigma.png');
 
-export const RegisterScreen = () => {
+export const ResetPasswordScreen = () => {
+  const {user} = useGlobal();
   const {setLoading} = useLoading();
   const navigation = useNavigation();
   const {colors, textStyles, formStyles} = useStyle();
@@ -35,67 +38,85 @@ export const RegisterScreen = () => {
   const insets = useSafeAreaInsets();
   const topMargin = insets.top + getHeight(48);
 
-  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [codeVerified, setCodeVerified] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState();
+  const [verificationCode, setVerificationCode] = useState();
+
+  if (
+    Platform.OS === 'android' &&
+    UIManager.setLayoutAnimationEnabledExperimental
+  ) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
 
   // -------------------- EFFECTS -------------------- //
 
   // -------------------- ACTIONS -------------------- //
-  const onPressLogin = () => {
-    navigation.goBack();
-  };
+  // const onPressVerify = () => {
+  //   LayoutAnimation.configureNext(
+  //     LayoutAnimation.create(
+  //       1000,
+  //       LayoutAnimation.Types.linear,
+  //       LayoutAnimation.Properties.opacity,
+  //     ),
+  //   );
+  //   setCodeVerified(!codeVerified);
+  // };
 
-  const onPressRegister = () => {
-    if (!email || !password || !confirmPassword) {
+  const onPressChangePassword = () => {
+    if (!verificationCode || !password || !confirmPassword) {
       return Alert.alert(General.Error, Auth.EnterRequiredFields);
-    }
-
-    if (!emailRegex.test(email)) {
-      return Alert.alert(General.Error, Auth.InvalidEmail);
     }
 
     if (password?.length < 6) {
       return Alert.alert(General.Error, Auth.InvalidPassword);
     }
 
+    if (password !== confirmPassword) {
+      return Alert.alert(General.Error, Auth.PasswordsMustMatch);
+    }
+
     setLoading(true);
 
-    cognitoPool.signUp(email, password, [], null, (err, data) => {
-      setLoading(false);
+    user.confirmPassword(verificationCode, password, {
+      onSuccess: res => {
+        setLoading(false);
 
-      if (err) {
-        switch (err.name) {
-          case 'InvalidParameterException':
-            return Alert.alert(General.Error, Auth.InvalidEmail);
-          case 'InvalidPasswordException':
-            return Alert.alert(General.Error, Auth.InvalidPassword);
-          case 'UsernameExistsException':
-            return Alert.alert(General.Error, Auth.EmailAlreadyExists);
-          default:
-            return Alert.alert(General.Error, General.SomethingWentWrong);
-        }
-      }
+        Alert.alert(General.Success, Auth.PasswordChanged, [
+          {
+            text: 'OK',
+            onPress: () => {
+              navigation.reset({
+                index: 0,
+                routes: [{name: 'login'}],
+              });
+            },
+          },
+        ]);
+      },
 
-      Alert.alert(General.Success, Auth.ConfirmEmail, [
-        {text: 'OK', onPress: () => navigation.navigate('login')},
-      ]);
+      onFailure: err => {
+        setLoading(false);
+
+        Alert.alert(General.Error, err.message);
+      },
     });
   };
 
   // -------------------- FIELDS -------------------- //
   const fields = {
-    email: {
+    verificationCode: {
       autoCapitalize: 'none',
-      onChange: e => setEmail(e.nativeEvent.text),
-      placeholder: Auth.Email,
+      onChange: e => setVerificationCode(e.nativeEvent.text),
+      placeholder: Auth.VerificationCode,
       placeholderTextColor: colors.paleSilver,
-      value: email,
+      value: verificationCode,
     },
     password: {
       autoCapitalize: 'none',
       onChange: e => setPassword(e.nativeEvent.text),
-      placeholder: Auth.Password,
+      placeholder: Auth.NewPassword,
       secureTextEntry: true,
       placeholderTextColor: colors.paleSilver,
       value: password,
@@ -103,7 +124,7 @@ export const RegisterScreen = () => {
     confirmPassword: {
       autoCapitalize: 'none',
       onChange: e => setConfirmPassword(e.nativeEvent.text),
-      placeholder: Auth.ConfirmPassword,
+      placeholder: Auth.ConfirmNewPassword,
       placeholderTextColor: colors.paleSilver,
       secureTextEntry: true,
       value: confirmPassword,
@@ -129,11 +150,6 @@ export const RegisterScreen = () => {
       height: getHeight(60),
       aspectRatio: 1,
     },
-    loginContainer: {
-      position: 'absolute',
-      top: topMargin,
-      right: 0,
-    },
     title: {
       ...textStyles.semiBold28_bistre,
       width: '100%',
@@ -158,37 +174,27 @@ export const RegisterScreen = () => {
       <View style={{height: getHeight(32)}} />
 
       {/* Title */}
-      <Text style={styles.title}>{Auth.CreateAccount}</Text>
+      <Text style={styles.title}>{Auth.ResetYourPassword}</Text>
       <View style={{height: getHeight(32)}} />
 
-      {/* Email */}
-      <TextInput style={styles.input} {...fields.email}></TextInput>
+      {/* Verification code */}
+      <TextInput style={styles.input} {...fields.verificationCode} />
       <View style={{height: getHeight(12)}} />
 
-      {/* Password */}
-      <TextInput style={styles.input} {...fields.password}></TextInput>
+      {/* New password */}
+      <TextInput style={styles.input} {...fields.password} />
       <View style={{height: getHeight(12)}} />
 
-      {/* Confirm password */}
-      <TextInput style={styles.input} {...fields.confirmPassword}></TextInput>
+      {/* Confirm new password */}
+      <TextInput style={styles.input} {...fields.confirmPassword} />
       <View style={{height: getHeight(32)}} />
 
-      {/* Register button */}
+      {/* Change password button */}
       <DefaultButton
-        text={Auth.Register}
+        text={Auth.ChangePassword}
         bgColor={colors.yellowOrange}
-        onPress={onPressRegister}
+        onPress={onPressChangePassword}
       />
-
-      {/* Create account button */}
-      <View style={styles.loginContainer}>
-        <OnboardingButton
-          text={Auth.LoginToAccount}
-          darkMode={true}
-          arrow={false}
-          onPress={onPressLogin}
-        />
-      </View>
     </SafeAreaView>
   );
 };
