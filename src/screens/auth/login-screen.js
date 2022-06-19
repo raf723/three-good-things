@@ -70,11 +70,35 @@ export const LoginScreen = () => {
     await AsyncStorage.setItem('ONBOARDED', 'false');
   };
 
-  const resetForm = () => {
-    setEmail();
-    setPassword();
-    setResetEmail();
+  const onPressResetPassword = () => {
+    setModalVisible(true);
   };
+
+  const onPressCloseModal = () => {
+    setModalVisible(false);
+  };
+
+  const onPressCreateAccount = () => {
+    navigation.navigate('register');
+  };
+
+  const getSession = useCallback(async () => {
+    const storageToken = await AsyncStorage.getItem('REFRESH_TOKEN');
+
+    cognitoPool.storage.sync(function (err, res) {
+      if (res !== 'SUCCESS') return;
+
+      const user = cognitoPool.getCurrentUser();
+      if (!user) return;
+
+      user.getSession((err, session) => {
+        if (err) return;
+
+        const sessionToken = session?.refreshToken?.token;
+        if (sessionToken === storageToken) navigation.navigate('main');
+      });
+    });
+  }, []);
 
   const onPressLogin = () => {
     if (!email || !password) {
@@ -125,18 +149,6 @@ export const LoginScreen = () => {
     });
   };
 
-  const onPressResetPassword = () => {
-    setModalVisible(true);
-  };
-
-  const onPressCloseModal = () => {
-    setModalVisible(false);
-  };
-
-  const onPressCreateAccount = () => {
-    navigation.navigate('register');
-  };
-
   const onPressSendEmail = () => {
     if (!resetEmail) {
       return Alert.alert(General.Error, Auth.EnterRequiredFields);
@@ -172,23 +184,11 @@ export const LoginScreen = () => {
     });
   };
 
-  const getSession = useCallback(async () => {
-    const storageToken = await AsyncStorage.getItem('REFRESH_TOKEN');
-
-    cognitoPool.storage.sync(function (err, res) {
-      if (res !== 'SUCCESS') return;
-
-      const user = cognitoPool.getCurrentUser();
-      if (!user) return;
-
-      user.getSession((err, session) => {
-        if (err) return;
-
-        const sessionToken = session?.refreshToken?.token;
-        if (sessionToken === storageToken) navigation.navigate('main');
-      });
-    });
-  }, []);
+  const resetForm = () => {
+    setEmail();
+    setPassword();
+    setResetEmail();
+  };
 
   // -------------------- FIELDS -------------------- //
   const fields = {
